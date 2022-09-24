@@ -1,0 +1,39 @@
+#box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
+
+.box-column {
+    border: 2px solid gray;
+    /* border-radius: 3px; */
+    margin: 2px;
+    height: 3em;
+    width: 3em;
+    display: flex;
+    text-transform: uppercase;
+}
+
+.box-row {
+    display: flex;
+}
+
+#Keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2em;
+
+}
+
+.top-row {}
+
+.middle-row {
+    padding: 0.2em;
+}
+
+.bottom-row {}
