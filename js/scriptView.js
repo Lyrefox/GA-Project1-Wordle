@@ -1,3 +1,4 @@
+
 function renderBoard() {
     let board = document.getElementById("box");
 
