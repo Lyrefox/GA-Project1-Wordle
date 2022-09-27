@@ -29,7 +29,7 @@ function keyboardClick(event) { //function for onscreen keyboard
         userEntry.pop()
         console.log(userEntry)
         // console.log(colNum)
-        rowEntry[rowNum].innerText = ''
+        rowEntry.innerText = ''
         if (colNum === -1) {
             colNum = 0
         }
@@ -57,7 +57,7 @@ function keyboardPress(event) { //function for physical keyboard
         userEntry.pop()
         console.log(userEntry)
         // console.log(colNum)
-        rowEntry[rowNum].innerText = ''
+        rowEntry.innerText = ''
         if (colNum === -1) {
             colNum = 0
         }
