@@ -10,7 +10,7 @@ function renderBoard() {
         for (let j = 0; j <= 4; j++) {
             let column = document.createElement("div")
             column.className = "box-column"
-            column.classList.add('c'+j)
+            column.classList.add(i + 'c'+j)
 
             row.appendChild(column)
         }

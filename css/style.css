@@ -42,3 +42,16 @@ h1 {
 }
 
 .bottom-row {}
+
+.green {
+    background: green;
+}
+.box-row.r0 {
+    background: green;
+}
+.yellow {
+    background: yellow;
+}
+.grey {
+    background: grey;
+}

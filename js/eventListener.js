@@ -4,5 +4,5 @@ for (key of keyboardButton) {
 window.addEventListener('keyup', (event) => {
     const keyPress = event.key;
     keyboardPress(keyPress)
-    console.log(keyPress)
+    // console.log(keyPress)
 })
