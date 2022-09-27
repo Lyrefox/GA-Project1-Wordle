@@ -42,7 +42,8 @@ function keyboardClick(event) { //function for onscreen keyboard
     }
 }
 
-function keyboardPress(keyPress) { //function for physical keyboard
+function keyboardPress(event) { //function for physical keyboard
+    const keyPress = event.key;
     let answerString = userEntry.join('').toUpperCase()
     const rowEntry = document.getElementById(rowNum + 'c' + colNum)
     if (colNum <= 5 && keyPress !== 'Backspace' && keyPress !== 'Enter') { // need to work out how to ignore everything that isnt a letter or backspace and enter
@@ -66,9 +67,10 @@ function keyboardPress(keyPress) { //function for physical keyboard
         colNum = 0
         userEntry = []
         if (answerString === answerWord) {
+            rowNum--
             alert('You Win')
-            const winner = document.getElementsByClassName('r' + rowNum)
-            winner.clas
+            document.getElementById('r'+rowNum).style.background = 'green'
+
         }
         userEntry = []
     }
