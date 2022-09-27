@@ -2,10 +2,10 @@ const keyboardButton = document.getElementsByClassName('keyboard-button')
 let answerArray = []
 const randomIndex = Math.floor(Math.random() * validWords.length);
 const answerWord = validWords[randomIndex];
-const splitWord = answerWord.split()
+const splitAnswer = answerWord.split('')
 answerArray.push(answerWord)
 console.log(answerArray)
-console.log(splitWord)
+console.log(splitAnswer)
 
 let userEntry = []
 let colNum = 0
@@ -68,15 +68,21 @@ function keyboardPress(event) { //function for physical keyboard
         userEntry = []
         if (answerString === answerWord) {
             rowNum--
+            document.getElementById('r'+rowNum).classList.add('class', 'green')
             alert('You Win')
-            document.getElementById('r'+rowNum).style.background = 'green'
-
         }
         userEntry = []
     }
 
 
 
+}
+
+
+function checkAnswer() {
+    //splitAnswer - correct answer array tha has been split into letters
+    //userEntry - users answer array that is split into letters
+    // check if user answer includes in splitanswer, then check if index matches, color according to results
 }
 
 
