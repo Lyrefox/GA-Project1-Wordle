@@ -2,8 +2,10 @@ const keyboardButton = document.getElementsByClassName('keyboard-button')
 let answerArray = []
 const randomIndex = Math.floor(Math.random() * validWords.length);
 const answerWord = validWords[randomIndex];
+const splitWord = answerWord.split()
 answerArray.push(answerWord)
 console.log(answerArray)
+console.log(splitWord)
 
 let userEntry = []
 let colNum = 0
@@ -14,7 +16,8 @@ function keyboardClick(event) { //function for onscreen keyboard
     console.log(clickedKey)
     const keyPressed = clickedKey.dataset.key
     console.log(keyPressed)
-    const rowEntry = document.getElementsByClassName(rowNum + 'c' + colNum)
+    const rowEntry = document.getElementById(rowNum + 'c' + colNum)
+    console.log(rowEntry)
     if (colNum <= 5 && keyPressed !== 'backspace' && keyPressed !== 'enter') {
         rowEntry.innerText = keyPressed
         colNum++
@@ -41,9 +44,9 @@ function keyboardClick(event) { //function for onscreen keyboard
 
 function keyboardPress(keyPress) { //function for physical keyboard
     let answerString = userEntry.join('').toUpperCase()
-    const rowEntry = document.getElementsByClassName('c' + colNum)
+    const rowEntry = document.getElementById(rowNum + 'c' + colNum)
     if (colNum <= 5 && keyPress !== 'Backspace' && keyPress !== 'Enter') { // need to work out how to ignore everything that isnt a letter or backspace and enter
-        rowEntry[rowNum].innerText = keyPress
+        rowEntry.innerText = keyPress
         colNum++
         userEntry.push(keyPress)
         console.log(userEntry)
@@ -67,9 +70,9 @@ function keyboardPress(keyPress) { //function for physical keyboard
             const winner = document.getElementsByClassName('r' + rowNum)
             winner.clas
         }
-    userEntry = []
+        userEntry = []
     }
-    
+
 
 
 }
@@ -77,3 +80,5 @@ function keyboardPress(keyPress) { //function for physical keyboard
 
 
 // iterate through word and change color on the spot so i dont have to get element later
+// turn answer word into single letter arary like user input is and compare them, then compare indexes if they match to determine if green of yellow
+// if letter matches AND index matches, color green, if letter included but index does not match color grey, if neither match then color grey
