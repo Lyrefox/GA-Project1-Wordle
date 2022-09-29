@@ -25,13 +25,18 @@ function keyboardClick(event) { //function for onscreen keyboard
         // console.log(userEntry)
         // console.log(colNum)
     } if (keyPressed === 'backspace' && colNum >= 0) {
-        console.log(colNum)
-        colNum--
-        console.log(colNum)
-        userEntry.pop()
-        // console.log(userEntry)
         // console.log(colNum)
-        rowEntry.innerText = ''
+        // colNum--
+        // console.log(colNum)
+        // userEntry.pop()
+        // rowEntry.innerText = ''
+
+        const delKey = document.getElementById(rowNum + 'c' + (colNum - 1))
+        delKey.innerText = ''
+        colNum = colNum - 1
+        userEntry.pop()
+
+
         if (colNum === -1) {
             colNum = 0
         }
