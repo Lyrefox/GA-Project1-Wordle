@@ -1,7 +1,8 @@
 const keyboardButton = document.getElementsByClassName('keyboard-button')
 let answerArray = []
-const randomIndex = Math.floor(Math.random() * validWords.length);
-const answerWord = validWords[randomIndex];
+const randomIndex = Math.floor(Math.random() * wordleArray.length);
+let answerWord = wordleArray[randomIndex];
+answerWord = answerWord.toUpperCase()
 const splitAnswer = answerWord.split('')
 answerArray.push(answerWord)
 console.log(answerArray)
@@ -46,19 +47,21 @@ function keyboardClick(event) { //function for onscreen keyboard
         // console.log(answerString)
         rowNum++
         colNum = 0
-        checkAnswer()
+        // checkAnswer()
+        checkWordExist()
         userEntry = []
     }
 }
 
 function keyboardPress(event) { //function for physical keyboard
     const keyPress = event.key;
+    let keyPressCap = keyPress.toUpperCase()
     // let answerString = userEntry.join('').toUpperCase()
     const rowEntry = document.getElementById(rowNum + 'c' + colNum)
     if (colNum <= 4 && keyPress !== 'Backspace' && keyPress !== 'Enter') { // need to work out how to ignore everything that isnt a letter or backspace and enter
         rowEntry.innerText = keyPress
         colNum++
-        let keyPressCap = keyPress.toUpperCase()
+
         // console.log(typeof(keyPressCap))
         userEntry.push(keyPressCap)
         console.log(userEntry)
@@ -82,8 +85,8 @@ function keyboardPress(event) { //function for physical keyboard
     } if (keyPress === 'Enter' && colNum === 5) {
         rowNum++
         colNum = 0
-        checkAnswer()
-        // checkWordExist()
+        // checkAnswer()
+        checkWordExist()
         // const answer2 = userEntry.forEach(result => splitAnswer.includes(result))
         // console.log(answer2)
         userEntry = []
@@ -125,9 +128,9 @@ function keyboardPress(event) { //function for physical keyboard
 // }
 
 function checkWordExist() {
-    const stringUser = userEntry.join('')
+    let stringUser = userEntry.join('')
     console.log(stringUser)
-    if (validWords.includes(stringUser)) {
+    if (wordleArray.includes(stringUser.toLowerCase())) {
         checkAnswer()
     } else {
         alert('That is not a word')
@@ -136,19 +139,19 @@ function checkWordExist() {
     }
 }
 function checkAnswer() {
-
+    // const stringUser = userEntry.join('')
     //splitAnswer - correct answer array that has been split into letters
     //userEntry - users answer array that is split into letters
     // check if user answer includes in splitanswer, then check if index matches, color according to results
-    const count = {};
-    for (const element of splitAnswer) {
-        if (count[element]) {
-            count[element] += 1;
-        } else {
-            count[element] = 1;
-        }
-    }
-    console.log(count)
+    // const count = {};
+    // for (const element of splitAnswer) {
+    //     if (count[element]) {
+    //         count[element] += 1;
+    //     } else {
+    //         count[element] = 1;
+    //     }
+    // }
+    // console.log(count)
 
     for (let arrayItem = 0; arrayItem < userEntry.length; arrayItem++) {
         // console.log('m in loop num = ' + arrayItem)
@@ -156,15 +159,25 @@ function checkAnswer() {
         // console.log('user Letter = ' + userEntry[arrayItem])
         // console.log('Correct word = ' + splitAnswer[arrayItem])
         // console.log(splitAnswer.indexOf(userEntry[arrayItem]))
+
+        // looks into replacing items in array
+        //or maybe popping it
+        const squareSelect = document.getElementById((rowNum - 1) + 'c' + arrayItem)
+        let character = squareSelect.textContent.toUpperCase()
+        console.log(character)
+
         if (userEntry[arrayItem] === splitAnswer[arrayItem] && splitAnswer.indexOf(userEntry[arrayItem] === arrayItem)) {
             const colorGreen = document.getElementById((rowNum - 1) + 'c' + arrayItem)
             colorGreen.classList.add('class', 'green')
-        } else if (!splitAnswer.includes(userEntry[arrayItem])) {
+
+        } else if (answerWord.includes(character)) {
+            // console.log('test')
+            squareSelect.style.backgroundColor = 'yellow';
+
+        } else {
             const colorGrey = document.getElementById((rowNum - 1) + 'c' + arrayItem)
             colorGrey.classList.add('class', 'grey')
-        } else if (splitAnswer.includes(userEntry[arrayItem])) {
-            const colorYellow = document.getElementById((rowNum - 1) + 'c' + arrayItem)
-            colorYellow.classList.add('class', 'yellow')
+
         }
     }
     winLose()
@@ -175,17 +188,17 @@ function checkAnswer() {
 
 function winLose() {
     const countAll = document.querySelectorAll('#r' + (rowNum - 1) + ' .green').length;
-    console.log(countAll)
+    // console.log(countAll)
     if (countAll === 5) {
         setTimeout(function () {
             alert('You Win!');
-            // location.reload()
+            location.reload()
         }, 0)
 
 
     } else if (rowNum === 6 && countAll < 5) {
         setTimeout(function () {
-            alert('You Lose')
+            alert('You Lose');
             location.reload()
         }, 0)
 
