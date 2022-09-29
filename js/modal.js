@@ -13,30 +13,30 @@ let rowNum = 0
 
 function keyboardClick(event) { //function for onscreen keyboard
     const clickedKey = event.target
-    console.log(clickedKey)
+    // console.log(clickedKey)
     const keyPressed = clickedKey.dataset.key
-    console.log(keyPressed)
+    // console.log(keyPressed)
     const rowEntry = document.getElementById(rowNum + 'c' + colNum)
-    console.log(rowEntry)
+    // console.log(rowEntry)
     if (colNum <= 5 && keyPressed !== 'backspace' && keyPressed !== 'enter') {
         rowEntry.innerText = keyPressed
         colNum++
         userEntry.push(keyPressed)
-        console.log(userEntry)
-        console.log(colNum)
+        // console.log(userEntry)
+        // console.log(colNum)
     } if (keyPressed === 'backspace' && colNum >= 0) {
         colNum--
         userEntry.pop()
-        console.log(userEntry)
+        // console.log(userEntry)
         // console.log(colNum)
         rowEntry.innerText = ''
         if (colNum === -1) {
             colNum = 0
         }
-        console.log(colNum)
+        // console.log(colNum)
     } if (keyPressed === 'enter' && colNum === 5) {
         let answerString = userEntry.join('').toUpperCase()
-        console.log(answerString)
+        // console.log(answerString)
         rowNum++
         colNum = 0
     }
@@ -44,46 +44,113 @@ function keyboardClick(event) { //function for onscreen keyboard
 
 function keyboardPress(event) { //function for physical keyboard
     const keyPress = event.key;
-    let answerString = userEntry.join('').toUpperCase()
+    // let answerString = userEntry.join('').toUpperCase()
     const rowEntry = document.getElementById(rowNum + 'c' + colNum)
     if (colNum <= 5 && keyPress !== 'Backspace' && keyPress !== 'Enter') { // need to work out how to ignore everything that isnt a letter or backspace and enter
         rowEntry.innerText = keyPress
         colNum++
-        userEntry.push(keyPress)
+        let keyPressCap = keyPress.toUpperCase()
+        // console.log(typeof(keyPressCap))
+        userEntry.push(keyPressCap)
         console.log(userEntry)
-        console.log(colNum)
+        // console.log(userEntry)
+        // console.log(colNum)
     } if (keyPress === 'Backspace' && colNum >= 0) {
         colNum--
         userEntry.pop()
-        console.log(userEntry)
+        // console.log(userEntry)
         // console.log(colNum)
         rowEntry.innerText = ''
         if (colNum === -1) {
             colNum = 0
         }
-        console.log(colNum)
+        // console.log(colNum)
     } if (keyPress === 'Enter' && colNum === 5) {
         rowNum++
         colNum = 0
+        checkAnswer()
+        // const answer2 = userEntry.forEach(result => splitAnswer.includes(result))
+        // console.log(answer2)
         userEntry = []
-        if (answerString === answerWord) {
-            rowNum--
-            document.getElementById('r'+rowNum).classList.add('class', 'green')
-            alert('You Win')
-        }
-        userEntry = []
+        // if (answerString === answerWord) {
+        //     rowNum--
+        //     document.getElementById('r'+rowNum).classList.add('class', 'green')
+        //     alert('You Win')
+        // }
+        // userEntry = []
     }
 
 
 
 }
 
-
+// function checkAnswer() {
+//     //splitAnswer - correct answer array tha has been split into letters
+//     //userEntry - users answer array that is split into letters
+//     // check if user answer includes in splitanswer, then check if index matches, color according to results
+//     // const answer2 = userEntry.forEach(result)
+//     // console.log(answer2)
+//     for (let m = 0; m < userEntry.length; m++) {
+//         console.log(m)
+//         console.log(rowNum)
+//         for (let b = 0; b < splitAnswer.length; b++) {
+//             if (userEntry[m] == splitAnswer[b] && m === b) {
+//                 console.log('true')
+//                 const colorGreen = document.getElementById((rowNum - 1) + 'c' + m)
+//                 colorGreen.classList.add('class', 'green')
+//             }else if (userEntry[m] == splitAnswer[b]) {
+//                 const colorYellow = document.getElementById((rowNum - 1) + 'c' + m)
+//                 colorYellow.classList.add('class', 'yellow')
+//             // }else if (!userEntry[m] == !splitAnswer[b]) {
+//             //     const colorGrey = document.getElementById((rowNum - 1) + 'c' + m)
+//             //     colorGrey.classList.add('class', 'grey')
+//             }
+//         }
+//     }
+// }
 function checkAnswer() {
     //splitAnswer - correct answer array tha has been split into letters
     //userEntry - users answer array that is split into letters
     // check if user answer includes in splitanswer, then check if index matches, color according to results
+    // const answer2 = userEntry.forEach(result)
+    // console.log(answer2)
+
+    const count = [];
+    for (const element of splitAnswer) {
+        if (count[element]) {
+            count[element] += 1;
+        } else {
+            count[element] = 1;
+        }
+    }
+    console.log(count)
+    console.log(count[0])
+
+
+
+    for (let arrayItem = 0; arrayItem < userEntry.length; arrayItem++) {
+        console.log('m in loop num = ' + arrayItem)
+        console.log('Row Number = ' + rowNum)
+        console.log('user Letter = ' + userEntry[arrayItem])
+        console.log('Correct word = ' + splitAnswer[arrayItem])
+        console.log(splitAnswer.indexOf(userEntry[arrayItem]))
+        if (userEntry[arrayItem] === splitAnswer[arrayItem] && splitAnswer.indexOf(userEntry[arrayItem] === arrayItem)) {
+            console.log('true')
+            const colorGreen = document.getElementById((rowNum - 1) + 'c' + arrayItem)
+            colorGreen.classList.add('class', 'green')
+        } else if (!splitAnswer.includes(userEntry[arrayItem])) {
+            const colorGrey = document.getElementById((rowNum - 1) + 'c' + arrayItem)
+            colorGrey.classList.add('class', 'grey')
+        } else if (splitAnswer.includes(userEntry[arrayItem])) {
+            const colorYellow = document.getElementById((rowNum - 1) + 'c' + arrayItem)
+            colorYellow.classList.add('class', 'yellow')
+        }
+    }
+
+
 }
+
+
 
 
 

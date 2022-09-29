@@ -26,6 +26,7 @@ h1 {
 }
 
 #Keyboard {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,15 +34,9 @@ h1 {
 
 }
 
-.top-row {
-    
-}
-
 .middle-row {
     padding: 0.2em;
 }
-
-.bottom-row {}
 
 .green {
     background: green;
