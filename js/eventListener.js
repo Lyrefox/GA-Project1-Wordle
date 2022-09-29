@@ -6,4 +6,7 @@ for (key of keyboardButton) {
 //     keyboardPress(keyPress)
 //     // console.log(keyPress)
 // })
+
+// testButtonId.addEventListener('click', winLose)
+
 window.addEventListener('keyup', keyboardPress)

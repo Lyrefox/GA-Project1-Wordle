@@ -68,7 +68,8 @@ function keyboardPress(event) { //function for physical keyboard
     } if (keyPress === 'Enter' && colNum === 5) {
         rowNum++
         colNum = 0
-        checkAnswer()
+        // checkAnswer()
+        checkWordExist()
         // const answer2 = userEntry.forEach(result => splitAnswer.includes(result))
         // console.log(answer2)
         userEntry = []
@@ -108,34 +109,33 @@ function keyboardPress(event) { //function for physical keyboard
 //         }
 //     }
 // }
+
+function checkWordExist() {
+    const stringUser = userEntry.join('')
+    console.log(stringUser)
+    if (validWords.includes(stringUser)) {
+        checkAnswer()
+    }else {
+        alert('That is not a word')
+        rowNum--
+        colNum = 5
+    }
+}
 function checkAnswer() {
-    //splitAnswer - correct answer array tha has been split into letters
+    
+    //splitAnswer - correct answer array that has been split into letters
     //userEntry - users answer array that is split into letters
     // check if user answer includes in splitanswer, then check if index matches, color according to results
-    // const answer2 = userEntry.forEach(result)
-    // console.log(answer2)
-
-    const count = [];
-    for (const element of splitAnswer) {
-        if (count[element]) {
-            count[element] += 1;
-        } else {
-            count[element] = 1;
-        }
-    }
-    console.log(count)
-    console.log(count[0])
 
 
 
     for (let arrayItem = 0; arrayItem < userEntry.length; arrayItem++) {
-        console.log('m in loop num = ' + arrayItem)
-        console.log('Row Number = ' + rowNum)
-        console.log('user Letter = ' + userEntry[arrayItem])
-        console.log('Correct word = ' + splitAnswer[arrayItem])
-        console.log(splitAnswer.indexOf(userEntry[arrayItem]))
+        // console.log('m in loop num = ' + arrayItem)
+        // console.log('Row Number = ' + rowNum)
+        // console.log('user Letter = ' + userEntry[arrayItem])
+        // console.log('Correct word = ' + splitAnswer[arrayItem])
+        // console.log(splitAnswer.indexOf(userEntry[arrayItem]))
         if (userEntry[arrayItem] === splitAnswer[arrayItem] && splitAnswer.indexOf(userEntry[arrayItem] === arrayItem)) {
-            console.log('true')
             const colorGreen = document.getElementById((rowNum - 1) + 'c' + arrayItem)
             colorGreen.classList.add('class', 'green')
         } else if (!splitAnswer.includes(userEntry[arrayItem])) {
@@ -147,10 +147,22 @@ function checkAnswer() {
         }
     }
 
+    winLose()
+    // const countAll = document.querySelectorAll('#r' + (rowNum - 1) + ' .green').length;
+    // console.log(countAll)
 
 }
 
-
+function winLose() {
+    const countAll = document.querySelectorAll('#r' + (rowNum - 1) + ' .green').length;
+    console.log(countAll)
+    if (countAll === 5) {
+        alert('You Win!')
+        
+    }else if (rowNum === 6 && countAll < 5) {
+        alert('You Lose')
+    }
+}
 
 
 
