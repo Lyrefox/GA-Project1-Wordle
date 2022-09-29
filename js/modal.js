@@ -162,21 +162,33 @@ function checkAnswer() {
 
         // looks into replacing items in array
         //or maybe popping it
-        const squareSelect = document.getElementById((rowNum - 1) + 'c' + arrayItem)
-        let character = squareSelect.textContent.toUpperCase()
-        console.log(character)
+
+        // const squareSelect = document.getElementById((rowNum - 1) + 'c' + arrayItem)
+        // let character = squareSelect.textContent.toUpperCase()
+        // console.log(character)
 
         if (userEntry[arrayItem] === splitAnswer[arrayItem] && splitAnswer.indexOf(userEntry[arrayItem] === arrayItem)) {
             const colorGreen = document.getElementById((rowNum - 1) + 'c' + arrayItem)
             colorGreen.classList.add('class', 'green')
+            const keyGreen = document.getElementById(userEntry[arrayItem])
+            keyGreen.classList.remove('class', 'green')
+            keyGreen.classList.remove('class', 'yellow')
+            keyGreen.classList.add('class', 'green')
 
-        } else if (answerWord.includes(character)) {
-            // console.log('test')
-            squareSelect.style.backgroundColor = 'yellow';
-
+        } else if (splitAnswer.includes(userEntry[arrayItem])) {
+            const colorYellow = document.getElementById((rowNum - 1) + 'c' + arrayItem)
+            colorYellow.classList.add('class', 'yellow')
+            const keyYellow = document.getElementById(userEntry[arrayItem])
+            keyYellow.classList.remove('class', 'yellow')
+            keyYellow.classList.add('class', 'yellow')
+            // userEntry.find(userEntry[arrayItem]).splice(arrayItem, 1, "?")
+            // userEntry.splice(arrayItem, 2, '?')
+            console.log(userEntry)
         } else {
             const colorGrey = document.getElementById((rowNum - 1) + 'c' + arrayItem)
             colorGrey.classList.add('class', 'grey')
+            const keyGrey = document.getElementById(userEntry[arrayItem])
+            keyGrey.classList.add('class', 'grey')
 
         }
     }
@@ -191,15 +203,17 @@ function winLose() {
     // console.log(countAll)
     if (countAll === 5) {
         setTimeout(function () {
-            alert('You Win!');
-            location.reload()
+            // alert('You Win!');
+            // location.reload()
+            console.log('You Win!')
         }, 0)
 
 
     } else if (rowNum === 6 && countAll < 5) {
         setTimeout(function () {
-            alert('You Lose');
-            location.reload()
+            // alert('You Lose');
+            // location.reload()
+            console.log('You Lose!')
         }, 0)
 
     }

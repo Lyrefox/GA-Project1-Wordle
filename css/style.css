@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
 
+
+body {
+    background-image: url(../images/nice_illustration-wallpaper-3440x1440.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
 #box {
     display: flex;
     align-items: center;
@@ -13,6 +19,7 @@ h1 {
     text-align: center;
     font-family: Alkalami, sans-serif;
     font-size: 56px;
+    color: blueviolet;
 }
 
 .box-column {
@@ -25,11 +32,14 @@ h1 {
     align-items: center;
     text-transform: uppercase;
     border-radius: 30px;
-    box-shadow: 0px 0px 0px 2px;
+    box-shadow: 10px 5px 2px 2px blue;
     border: none;
     margin: 10px;
     font-family: Inconsolata, Arial, sans-serif;
     text-shadow: 0px 20px 20px 0px;
+    color: white;
+    text-shadow: 5px 5px 5px 5px black;
+
 }
 
 .box-row {
@@ -52,18 +62,34 @@ h1 {
     margin: 5px;
     border: none;
     border-radius: 50px;
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
 }
 
+#backspaceKey {
+    /* width: 180px; */
+}
+
+#enterKey {
+    /* width: 180px; */
+}
+.middle-row {
+    justify-content: center;
+    align-items: center;
+}
 
 .green {
     background: green;
+    color: black;
 }
 
 .yellow {
     background: yellow;
+    color: black;
 }
 
 .grey {
     background: grey;
+    color: black;
 }
