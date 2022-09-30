@@ -2,6 +2,15 @@
 
 Wordle for GA Project1
 - URL: https://lyrefox.github.io/GA-Project1-Wordle/html/
+
+## Rules
+- You have to guess the Wordle in six goes or less
+- A correct letter turns green
+- A correct letter in the wrong place turns yellow
+- An incorrect letter turns gray
+- Letters can be used more than once
+- Answers are never plurals
+
 ## Work Plan
 - [✅] Create HTML
 - [✅] Create CSS
