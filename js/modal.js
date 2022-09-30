@@ -1,7 +1,7 @@
 const keyboardButton = document.getElementsByClassName('keyboard-button')
 let answerArray = []
 const randomIndex = Math.floor(Math.random() * wordleArray.length);
-let answerWord = wordleArray[randomIndex];
+let answerWord = 'panel' //wordleArray[randomIndex];
 answerWord = answerWord.toUpperCase()
 const splitAnswer = answerWord.split('')
 answerArray.push(answerWord)
@@ -138,6 +138,8 @@ function checkWordExist() {
         colNum = 5
     }
 }
+var countDupe = {}
+var countDupeUser = {}
 function checkAnswer() {
     // const stringUser = userEntry.join('')
     //splitAnswer - correct answer array that has been split into letters
@@ -152,21 +154,48 @@ function checkAnswer() {
     //     }
     // }
     // console.log(count)
+    var arrYellow = []
 
+
+    // for (let i = 0; i < 5; i++) {
+    //     var element = splitAnswer[i];
+    //     if (countDupe[element]) {
+    //         countDupe[element] += 1;
+    //     } else {
+    //         countDupe[element] = 1;
+    //     }
+    //     console.log(countDupe)
+    // }
+    // for (let i = 0; i < 5; i++) {
+    //     var element = userEntry[i];
+    //     if (countDupeUser[element]) {
+    //         countDupeUser[element] += 1;
+    //     } else {
+    //         countDupeUser[element] = 1;
+    //     }
+    //     console.log(countDupe)
+    // }
+
+    // console.log('m in loop num = ' + arrayItem)
+    // console.log('Row Number = ' + rowNum)
+    // console.log('user Letter = ' + userEntry[arrayItem])
+    // console.log('Correct word = ' + splitAnswer[arrayItem])
+    // console.log(splitAnswer.indexOf(userEntry[arrayItem]))
+
+    // looks into replacing items in array
+    //or maybe popping it
+
+
+
+    // console.log(arrayItem)
+
+
+
+    // const squareSelect = document.getElementById((rowNum - 1) + 'c' + arrayItem)
+    // let character = squareSelect.textContent.toUpperCase()
+    // console.log(character)
     for (let arrayItem = 0; arrayItem < userEntry.length; arrayItem++) {
-        // console.log('m in loop num = ' + arrayItem)
-        // console.log('Row Number = ' + rowNum)
-        // console.log('user Letter = ' + userEntry[arrayItem])
-        // console.log('Correct word = ' + splitAnswer[arrayItem])
-        // console.log(splitAnswer.indexOf(userEntry[arrayItem]))
-
-        // looks into replacing items in array
-        //or maybe popping it
-
-        // const squareSelect = document.getElementById((rowNum - 1) + 'c' + arrayItem)
-        // let character = squareSelect.textContent.toUpperCase()
-        // console.log(character)
-
+        var userLetter = userEntry[arrayItem]
         if (userEntry[arrayItem] === splitAnswer[arrayItem] && splitAnswer.indexOf(userEntry[arrayItem] === arrayItem)) {
             const colorGreen = document.getElementById((rowNum - 1) + 'c' + arrayItem)
             colorGreen.classList.add('class', 'green')
@@ -181,9 +210,17 @@ function checkAnswer() {
             const keyYellow = document.getElementById(userEntry[arrayItem])
             keyYellow.classList.remove('class', 'yellow')
             keyYellow.classList.add('class', 'yellow')
+            // if (!arrYellow.includes(userEntry[arrayItem])) {
+            //     arrYellow.push(userEntry[arrayItem])
+            // }
+
             // userEntry.find(userEntry[arrayItem]).splice(arrayItem, 1, "?")
             // userEntry.splice(arrayItem, 2, '?')
-            console.log(userEntry)
+            // splitAnswer.splice(arrayItem, 1, '?')
+            console.log(arrYellow)
+            // console.log(splitAnswer)
+            // console.log(userEntry[arrayItem])
+
         } else {
             const colorGrey = document.getElementById((rowNum - 1) + 'c' + arrayItem)
             colorGrey.classList.add('class', 'grey')
@@ -191,6 +228,7 @@ function checkAnswer() {
             keyGrey.classList.add('class', 'grey')
 
         }
+        console.log(arrYellow)
     }
     winLose()
     // const countAll = document.querySelectorAll('#r' + (rowNum - 1) + ' .green').length;
@@ -205,15 +243,17 @@ function winLose() {
         setTimeout(function () {
             // alert('You Win!');
             // location.reload()
-            console.log('You Win!')
+            var win = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=780,height=200,top=" + (screen.height - 400) + ",left=" + (screen.width - 840));
+            win.document.body.innerHTML = "HTML";
+            // console.log('You Win!')
         }, 0)
 
 
     } else if (rowNum === 6 && countAll < 5) {
         setTimeout(function () {
-            // alert('You Lose');
-            // location.reload()
-            console.log('You Lose!')
+            alert('You Lose');
+            location.reload()
+            // console.log('You Lose!')
         }, 0)
 
     }

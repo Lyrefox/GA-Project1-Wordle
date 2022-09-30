@@ -20,6 +20,7 @@ h1 {
     font-family: Alkalami, sans-serif;
     font-size: 56px;
     color: blueviolet;
+    text-shadow: 5px 2px 10px blue;
 }
 
 .box-column {
@@ -36,9 +37,9 @@ h1 {
     border: none;
     margin: 10px;
     font-family: Inconsolata, Arial, sans-serif;
-    text-shadow: 0px 20px 20px 0px;
     color: white;
     text-shadow: 5px 5px 5px 5px black;
+    
 
 }
 
