@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Alkalami&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
 
 body {
     background-image: url(../images/nice_illustration-wallpaper-3440x1440.jpg);
@@ -19,7 +21,8 @@ body {
 h1 {
     height: 36px;
     text-align: center;
-    font-family: Alkalami, sans-serif;
+    font-family: Silkscreen, sans-serif;
+    font-weight: 400;
     font-size: 56px;
     color: white;
     text-shadow: 5px 2px 10px black;
@@ -38,7 +41,7 @@ h1 {
     box-shadow: 10px 5px 2px 2px blue;
     border: none;
     margin: 10px;
-    font-family: Inconsolata, Arial, sans-serif;
+    font-family: Titan One, Arial, sans-serif;
     color: white;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 
@@ -67,8 +70,12 @@ h1 {
     box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.5);
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    font-size: 28px;
+    font-family: Shadows Into Light, Arial, Helvetica, sans-serif;
 }
-
+.keyboard-button:hover {
+    background-color: red;
+}
 .middle-row {
     justify-content: center;
     align-items: center;

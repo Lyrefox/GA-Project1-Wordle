@@ -5,7 +5,7 @@ let answerWord = wordleArray[randomIndex];
 answerWord = answerWord.toUpperCase()
 const splitAnswer = answerWord.split('')
 answerArray.push(answerWord)
-console.log(answerArray)
+console.log(answerWord)
 
 let userEntry = []
 let colNum = 0
@@ -51,7 +51,6 @@ function keyboardPress(event) { //function for physical keyboard
 
 
         userEntry.push(keyPressCap)
-        console.log(userEntry)
     } if (keyPress === 'Backspace' && colNum >= 0) {
 
         const delKey = document.getElementById(rowNum + 'c' + (colNum - 1))
