@@ -12,6 +12,9 @@ let userEntry = []
 let colNum = 0
 let rowNum = 0
 
+var winSound = new Audio('../sound/HappySoundEffect.mp3');
+var loseSound = new Audio('../sound/SadViolin.mp3');
+
 function keyboardClick(event) { //function for onscreen keyboard
     const clickedKey = event.target
     const keyPressed = clickedKey.dataset.key
@@ -75,7 +78,6 @@ function keyboardPress(event) { //function for physical keyboard
 
 function checkWordExist() {
     let stringUser = userEntry.join('')
-    console.log(stringUser)
     if (wordleArray.includes(stringUser.toUpperCase())) {
         checkAnswer()
     } else {
@@ -87,7 +89,7 @@ function checkWordExist() {
 var countDupe = {}
 var countDupeUser = {}
 function checkAnswer() {
-    for (let arrayItem = 0; arrayItem < userEntry.length; arrayItem++) {
+    for (var arrayItem = 0; arrayItem < userEntry.length; arrayItem++) {
         var userLetter = userEntry[arrayItem]
         if (userEntry[arrayItem] === splitAnswer[arrayItem] && splitAnswer.indexOf(userEntry[arrayItem] === arrayItem)) {
             const colorGreen = document.getElementById((rowNum - 1) + 'c' + arrayItem)
@@ -115,19 +117,26 @@ function checkAnswer() {
 }
 
 function winLose() {
+    
     const countAll = document.querySelectorAll('#r' + (rowNum - 1) + ' .green').length;
     if (countAll === 5) {
-        setTimeout(function () {
-            alert('You Win!');
-            location.reload()
-        }, 0)
-
-
+        const win = document.getElementById('h1')
+        win.innerHTML = "You Win!"
+        window.removeEventListener('keyup', keyboardPress)
+        document.getElementById('Keyboard').style.display = "none";
+        // document.getElementById('box').style.display = "none";
+        document.getElementById('endgame').style.display = "flex";
+        winSound.play();
     } else if (rowNum === 6 && countAll < 5) {
-        setTimeout(function () {
-            alert('You Lose');
-            location.reload()
-        }, 0)
-
+        const win = document.getElementById('h1')
+        win.innerHTML = "You Lose!"
+        window.removeEventListener('keyup', keyboardPress)
+        document.getElementById('Keyboard').style.display = "none";
+        document.getElementById('endgame').style.display = "flex";
+        loseSound.play();
     }
+}
+
+function tryAgainButton() {
+    location.reload()
 }

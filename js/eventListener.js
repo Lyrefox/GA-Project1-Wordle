@@ -1,5 +1,6 @@
 for (key of keyboardButton) {
-    key.addEventListener('click', keyboardClick)
+    var keyEvent = key.addEventListener('click', keyboardClick)
 }
 
 window.addEventListener('keyup', keyboardPress)
+tryAgain.addEventListener('click', tryAgainButton)
