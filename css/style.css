@@ -77,7 +77,6 @@ h1 {
     background-color: grey;
 }
 .keyboard-button:active {
-    background-color: grey;
     transform: translatey(4px);
 }
 .middle-row {
@@ -111,4 +110,12 @@ h1 {
     border-radius: 50px;
     border: none;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+#tryAgain:hover {
+    background-color: black;
+    color: white;
+}
+#tryAgain:active {
+    /* background-color: grey; */
+    transform: translatey(4px);
 }
