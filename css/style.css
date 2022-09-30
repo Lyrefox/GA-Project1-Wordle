@@ -76,6 +76,10 @@ h1 {
 .keyboard-button:hover {
     background-color: grey;
 }
+.keyboard-button:active {
+    background-color: grey;
+    transform: translatey(4px);
+}
 .middle-row {
     justify-content: center;
     align-items: center;
