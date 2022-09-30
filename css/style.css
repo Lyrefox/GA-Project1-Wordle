@@ -74,7 +74,7 @@ h1 {
     font-family: Shadows Into Light, Arial, Helvetica, sans-serif;
 }
 .keyboard-button:hover {
-    background-color: red;
+    background-color: grey;
 }
 .middle-row {
     justify-content: center;
