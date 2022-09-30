@@ -7,6 +7,7 @@ body {
     background-image: url(../images/nice_illustration-wallpaper-3440x1440.jpg);
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #box {

@@ -6,7 +6,6 @@ answerWord = answerWord.toUpperCase()
 const splitAnswer = answerWord.split('')
 answerArray.push(answerWord)
 console.log(answerArray)
-console.log(splitAnswer)
 
 let userEntry = []
 let colNum = 0
