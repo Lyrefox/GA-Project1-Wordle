@@ -110,6 +110,7 @@ h1 {
     border-radius: 50px;
     border: none;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+    font-family: Silkscreen, Arial;
 }
 #tryAgain:hover {
     background-color: black;
