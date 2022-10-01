@@ -95,16 +95,29 @@ h2 {
 }
 
 .green {
+    /* transition: 0.5s ease-in;
+    transform: rotateX(360deg); */
+    animation-name: colorChange;
+    animation-duration: 2s;
+    /* animation-iteration-count: infinite; */
     background: green;
     color: black;
+    border-radius: 2em;
 }
 
 .yellow {
+    /* transition: 0.5s ease-in;
+    transform: rotateY(360deg); */
+    animation-name: spin;
+    animation-duration: 1.2s;
+    /* animation-iteration-count: infinite; */
     background: yellow;
     color: black;
 }
 
 .grey {
+    transition: 0.6s ease-in;
+    opacity: 0.3;
     background: grey;
     color: black;
 }
@@ -128,4 +141,28 @@ h2 {
 }
 #tryAgain:active {
     transform: translatey(4px);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes colorChange {
+    0% {
+        /* transition: 0.3s ease-in; */
+        background-color: none;
+        border: solid green;
+        border-radius: 0em;
+        color: white;
+        
+    }
+    100% {
+        /* transition: 0.3s ease-out; */
+        border-radius: 2em;
+        color: black;
+    }
 }

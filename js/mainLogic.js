@@ -90,6 +90,7 @@ function checkAnswer() {
             keyGreen.classList.remove('class', 'green')
             keyGreen.classList.remove('class', 'yellow')
             keyGreen.classList.add('class', 'green')
+            // flipTile(colorGreen, "green")
 
         } else if (splitAnswer.includes(userEntry[arrayItem])) {
             const colorYellow = document.getElementById((rowNum - 1) + 'c' + arrayItem)
@@ -133,4 +134,14 @@ function winLose() {
 
 function tryAgainButton() {
     location.reload()
+}
+
+function flipTile(tile, color) {
+    tile.style.transition = "0.3s ease-in"
+    tile.style.transform = "rotateX(90deg)"
+    setTimeout(()=> {
+        tile.style.transform = "rotateX(0deg)"
+        tile.style.backgroundColor = color
+
+    }, 300)
 }
