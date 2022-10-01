@@ -38,7 +38,14 @@ Wordle for GA Project1
         - curved borders to look more curved like type writer keys
         - changed background color and opacity
         - changed font of letters on buttons
-        - added hover effect to highlight keys mouse is on
+        - added hover effect to change background color of keys
+        - added active effect to make keys look like they have been pressed
+        - changed hover from background color to border
+    - win/lose screen
+        - changed h1 element to display You Win/You Lose!
+        - centered h2 and to match css of h1 while being slightly smaller
+        - added hover effect to try again button
+        - added active effect to try again button
 - [✅] js
     - create game board using for loop
     - create event listeners for on-screen buttons and physical keyboard
@@ -51,9 +58,13 @@ Wordle for GA Project1
     - created funtion that checks each letter in the game board and compares to the correct word
     - completed backspace so it is fully functional
     - added win and lose conditions
+    - completed tile color function so each tile colors correctly
     - changed win screen from alert to change h1 to say you win/you lose.
-    - removed eventlistener for physical keyboard after win/lose
+    - removed event listener for physical keyboard after win/lose
     - hide on-screen keyboard on win/lose
+    - added try again button on win/lose screen
+    - added win and lose sounds
+    - added h2 element to display what the correct word was after you lose
 
 
 - I pretty much accomplished all my goals using for loops, arrays and if statements mainly. 
