@@ -88,7 +88,6 @@ var countDupe = {}
 var countDupeUser = {}
 function checkAnswer() {
     for (var arrayItem = 0; arrayItem < userEntry.length; arrayItem++) {
-        var userLetter = userEntry[arrayItem]
         if (userEntry[arrayItem] === splitAnswer[arrayItem] && splitAnswer.indexOf(userEntry[arrayItem] === arrayItem)) {
             const colorGreen = document.getElementById((rowNum - 1) + 'c' + arrayItem)
             colorGreen.classList.add('class', 'green')
