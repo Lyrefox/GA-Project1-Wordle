@@ -76,7 +76,6 @@ function keyboardPress(event) { //function for physical keyboard
 function checkWordExist() {
     let stringUser = userEntry.join('')
     if (wordleArray.includes(stringUser.toUpperCase())) {
-        
         checkAnswer()
         userEntry = []
     } else {
@@ -122,7 +121,6 @@ function winLose() {
         win.innerHTML = "You Win!"
         window.removeEventListener('keyup', keyboardPress)
         document.getElementById('Keyboard').style.display = "none";
-        // document.getElementById('box').style.display = "none";
         document.getElementById('endgame').style.display = "flex";
         winSound.play();
     } else if (rowNum === 6 && countAll < 5) {
