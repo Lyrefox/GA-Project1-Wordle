@@ -65,6 +65,3 @@ Wordle for GA Project1
     - added try again button on win/lose screen
     - added win and lose sounds
     - added h2 element to display what the correct word was after you lose
-
-
-- Unsolved problems - Everything works but I was not able to figure out how to remove duplicate yellows when there is no duplicate in the correct word.
