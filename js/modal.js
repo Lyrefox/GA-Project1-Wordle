@@ -82,8 +82,6 @@ function checkWordExist() {
         colNum = 5
     }
 }
-var countDupe = {}
-var countDupeUser = {}
 function checkAnswer() {
     for (var arrayItem = 0; arrayItem < userEntry.length; arrayItem++) {
         if (userEntry[arrayItem] === splitAnswer[arrayItem] && splitAnswer.indexOf(userEntry[arrayItem] === arrayItem)) {
