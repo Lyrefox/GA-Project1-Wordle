@@ -67,6 +67,4 @@ Wordle for GA Project1
     - added h2 element to display what the correct word was after you lose
 
 
-- I pretty much accomplished all my goals using for loops, arrays and if statements mainly. 
-
 - Unsolved problems - Everything works but I was not able to figure out how to remove duplicate yellows when there is no duplicate in the correct word.
