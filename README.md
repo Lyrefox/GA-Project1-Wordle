@@ -1,7 +1,7 @@
 # GA-Project1-Wordle
 
 Wordle for GA Project1
-- URL: https://lyrefox.github.io/GA-Project1-Wordle/html/
+[Here is my Wordle Game!(https://lyrefox.github.io/GA-Project1-Wordle/html/)
 
 ## Rules
 - You have to guess the Wordle in six goes or less
