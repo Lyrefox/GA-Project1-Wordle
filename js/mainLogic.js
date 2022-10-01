@@ -1,10 +1,9 @@
 const keyboardButton = document.getElementsByClassName('keyboard-button')
-let answerArray = []
 const randomIndex = Math.floor(Math.random() * wordleArray.length);
+
 let answerWord = wordleArray[randomIndex];
 answerWord = answerWord.toUpperCase()
 const splitAnswer = answerWord.split('')
-answerArray.push(answerWord)
 console.log(answerWord)
 
 let userEntry = []
