@@ -45,7 +45,7 @@ function keyboardPress(event) { //function for physical keyboard
     const keyPress = event.key;
     let keyPressCap = keyPress.toUpperCase()
     const rowEntry = document.getElementById(rowNum + 'c' + colNum)
-    if (colNum <= 4 && keyPress !== 'Backspace' && keyPress !== 'Enter') {
+    if (colNum <= 4 && keyPress !== 'Backspace' && keyPress !== 'Enter' && keyPress >= 'a' && keyPress <= 'z') {
         rowEntry.innerText = keyPress
         colNum++
 
@@ -127,8 +127,11 @@ function winLose() {
         winSound.play();
     } else if (rowNum === 6 && countAll < 5) {
         const win = document.getElementById('h1')
+        const answerWas = document.getElementById('correctWord')
         win.innerHTML = "You Lose!"
+        answerWas.innerHTML = "The word was " + answerWord
         window.removeEventListener('keyup', keyboardPress)
+        document.getElementById('correctWord').style.display = 'block'
         document.getElementById('Keyboard').style.display = "none";
         document.getElementById('endgame').style.display = "flex";
         loseSound.play();
