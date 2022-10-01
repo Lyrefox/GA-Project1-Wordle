@@ -22,7 +22,6 @@ function keyboardClick(event) { //function for onscreen keyboard
         rowEntry.innerText = keyPressed
         colNum++
         userEntry.push(keyPressed)
-        console.log(userEntry)
     } if (keyPressed === 'backspace' && colNum >= 0) {
 
         const delKey = document.getElementById(rowNum + 'c' + (colNum - 1))
@@ -57,7 +56,6 @@ function keyboardPress(event) { //function for physical keyboard
         delKey.innerText = ''
         colNum = colNum - 1
         userEntry.pop()
-        console.log(userEntry)
 
         if (colNum === -1) {
             colNum = 0

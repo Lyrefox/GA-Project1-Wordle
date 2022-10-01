@@ -84,7 +84,7 @@ h2 {
     font-family: Shadows Into Light, Arial, Helvetica, sans-serif;
 }
 .keyboard-button:hover {
-    background-color: grey;
+    border: 2px solid grey;
 }
 .keyboard-button:active {
     transform: translatey(4px);
