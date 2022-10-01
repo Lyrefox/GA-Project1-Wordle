@@ -46,7 +46,7 @@ Wordle for GA Project1
         - centered h2 and to match css of h1 while being slightly smaller
         - added hover effect to try again button
         - added active effect to try again button
-- [✅] js
+- [✅] Create Javascript
     - create game board using for loop
     - create event listeners for on-screen buttons and physical keyboard
     - show entered key into game board.
