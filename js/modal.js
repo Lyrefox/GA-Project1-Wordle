@@ -110,7 +110,7 @@ function checkAnswer() {
 }
 
 function winLose() {
-    
+
     const countAll = document.querySelectorAll('#r' + (rowNum - 1) + ' .green').length;
     if (countAll === 5) {
         const win = document.getElementById('h1')
